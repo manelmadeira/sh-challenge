@@ -35,7 +35,11 @@ export function CardStat({
         <CardAction>
           {diffDirection && diffValue ? (
             <Badge variant="outline">
-              {diffDirection === 'up' ? <IconTrendingUp /> : <IconTrendingDown />}
+              {diffDirection === "up" ? (
+                <IconTrendingUp aria-label="Trending up" />
+              ) : (
+                <IconTrendingDown aria-label="Trending down" />
+              )}
               {diffValue}%
             </Badge>
           ) : (
