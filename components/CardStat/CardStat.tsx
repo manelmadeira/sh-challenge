@@ -1,0 +1,48 @@
+import { IconTrendingDown, IconTrendingUp } from "@tabler/icons-react";
+
+import {
+  Card,
+  CardAction,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
+
+interface CardStatProps {
+  title?: string;
+  value?: string;
+  diffDirection?: "up" | "down";
+  diffValue?: string;
+}
+
+export function CardStat({
+  title,
+  value,
+  diffDirection,
+  diffValue,
+}: CardStatProps) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardDescription>
+          {title ? title : <Skeleton className="h-4 w-1/2" />}
+        </CardDescription>
+        <CardTitle className="text-xl font-semibold tabular-nums">
+          {value ? value : <Skeleton className="h-8 w-full" />}
+        </CardTitle>
+        <CardAction>
+          {diffDirection && diffValue ? (
+            <Badge variant="outline">
+              {diffDirection === 'up' ? <IconTrendingUp /> : <IconTrendingDown />}
+              {diffValue}%
+            </Badge>
+          ) : (
+            <Skeleton className="h-4 w-[30px]" />
+          )}
+        </CardAction>
+      </CardHeader>
+    </Card>
+  );
+}
