@@ -10,11 +10,15 @@ export function SentimentMetrics() {
   const { data } = useQuery(sentimentMetricsOptions);
 
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-3 flex-col md:flex-row">
       <div className="basis-1/3">
         <CardStat
           title="Avg. Call Duration"
-          value={data?.averageCallDuration.value ? `${data?.averageCallDuration.value} min` : undefined}
+          value={
+            data?.averageCallDuration.value
+              ? `${data?.averageCallDuration.value} min`
+              : undefined
+          }
           diffDirection={data?.averageCallDuration.diffDirection}
           diffValue={data?.averageCallDuration.diffValue}
         />
@@ -22,7 +26,11 @@ export function SentimentMetrics() {
       <div className="basis-1/3">
         <CardStat
           title="Agent Latency"
-          value={data?.agentLatency.value ? `${data?.agentLatency.value}s` : undefined}
+          value={
+            data?.agentLatency.value
+              ? `${data?.agentLatency.value}s`
+              : undefined
+          }
           diffDirection={data?.agentLatency.diffDirection}
           diffValue={data?.agentLatency.diffValue}
         />
@@ -30,7 +38,11 @@ export function SentimentMetrics() {
       <div className="basis-1/3">
         <CardStat
           title="Sentiment Score"
-          value={data?.agentLatency.value ? `${data?.agentLatency.value}/10` : undefined}
+          value={
+            data?.agentLatency.value
+              ? `${data?.agentLatency.value}/10`
+              : undefined
+          }
           diffDirection={data?.agentLatency.diffDirection}
           diffValue={data?.agentLatency.diffValue}
         />
