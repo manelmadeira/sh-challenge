@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+
 import { SentimentMetrics } from "./SentimentMetrics";
 
 export default function Home() {

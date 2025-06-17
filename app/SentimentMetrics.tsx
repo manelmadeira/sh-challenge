@@ -1,7 +1,9 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+
 import { CardStat } from "@/components/CardStat";
+
 import { sentimentMetricsOptions } from "./sentiment-metrics-options";
 
 export function SentimentMetrics() {

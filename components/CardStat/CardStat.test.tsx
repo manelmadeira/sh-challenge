@@ -1,4 +1,5 @@
 import { render, screen } from "@/lib/test-utils";
+
 import { CardStat } from "./CardStat";
 
 describe("CardStat", () => {
