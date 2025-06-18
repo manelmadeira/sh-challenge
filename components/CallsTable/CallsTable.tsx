@@ -1,7 +1,11 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
 
+import { FeedbackStatusBadge } from "@/components/FeedbackStatusBadge";
+import { SentimentBadge } from "@/components/SentimentBadge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
@@ -70,12 +74,27 @@ export function CallsTable() {
               data?.calls.map((call) => {
                 return (
                   <TableRow key={call.id}>
-                    <TableCell>{call.id}</TableCell>
-                    <TableCell>{call.timestamp}</TableCell>
+                    <TableCell>
+                      <Button asChild variant="link" className="px-0">
+                        <Link href={`/calls/${call.id}`}>{call.id}</Link>
+                      </Button>
+                    </TableCell>
+                    <TableCell>
+                      {new Intl.DateTimeFormat("en-US", {
+                        dateStyle: "short",
+                        timeStyle: "medium",
+                      }).format(new Date(call.timestamp))}
+                    </TableCell>
                     <TableCell>{call.agentID}</TableCell>
-                    <TableCell>{call.sentiment}</TableCell>
-                    <TableCell className="text-right">{new Intl.NumberFormat().format(call.duration)}</TableCell>
-                    <TableCell>{call.feedbackStatus}</TableCell>
+                    <TableCell>
+                      <SentimentBadge sentiment={call.sentiment} />
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {new Intl.NumberFormat().format(call.duration)}
+                    </TableCell>
+                    <TableCell>
+                      <FeedbackStatusBadge status={call.feedbackStatus} />
+                    </TableCell>
                   </TableRow>
                 );
               })

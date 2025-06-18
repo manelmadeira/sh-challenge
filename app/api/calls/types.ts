@@ -4,9 +4,23 @@ export interface Call {
   agentID: string;
   sentiment: "positive" | "negative" | "neutral";
   duration: number;
-  feedbackStatus: string;
+  feedbackStatus: "pending" | "not started" | "completed";
 }
 
-export type CallsResponse = {
+export interface CallsResponse {
   calls: Call[];
+}
+
+export interface CallMessage {
+  id: string;
+  owner: "agent" | "customer";
+  text: string;
+  timestamp: string;
+  sentiment: "positive" | "negative" | "neutral";
+  rating?: 1 | 2 | 3 | 4 | 5;
+  tag?: "inaccurate sentiment" | "critical issue" | "follow-up needed";
+}
+
+export interface CallConversation {
+  messages: CallMessage[];
 }
