@@ -1,7 +1,8 @@
 import Link from "next/link";
 
-import { ModeToggle } from "@/components/ModeToggle";
 import { Button } from "@/components/ui/button";
+
+import { ModeToggle } from "./ModeToggle";
 
 export function Header() {
   return (

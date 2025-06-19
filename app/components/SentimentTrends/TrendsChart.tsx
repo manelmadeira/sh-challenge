@@ -1,5 +1,6 @@
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 
+import { SentimentTrendsResponse } from "@/app/api/sentiment-trends/types";
 import {
   ChartContainer,
   ChartLegend,
@@ -7,8 +8,6 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-
-import { SentimentTrendsResponse } from "../../app/api/sentiment-trends/types";
 
 import { chartConfig } from "./config";
 

@@ -2,7 +2,6 @@
 
 import { useQuery } from "@tanstack/react-query";
 
-import { TrendsChart } from "@/components/TrendsChart";
 import {
   Card,
   CardContent,
@@ -12,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
+import { TrendsChart } from "./TrendsChart";
 import { sentimentTrendsOptions } from "./sentiment-trends-options";
 
 export function SentimentTrends() {

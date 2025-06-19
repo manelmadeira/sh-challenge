@@ -1,6 +1,6 @@
-import { CallsTable } from "@/components/CallsTable";
-import { SentimentMetrics } from "@/components/SentimentMetrics";
-import { SentimentTrends } from "@/components/SentimentTrends";
+import { CallsTable } from "./components/CallsTable";
+import { SentimentMetrics } from "./components/SentimentMetrics";
+import { SentimentTrends } from "./components/SentimentTrends";
 
 export default function Home() {
   return (
