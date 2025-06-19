@@ -29,7 +29,7 @@ export function CardStat({
         <CardDescription>
           {title ? title : <Skeleton className="h-4 w-1/2" />}
         </CardDescription>
-        <CardTitle className="text-2xl font-semibold tabular-nums">
+        <CardTitle className="text-2xl md:text-3xl lg:text-4xl font-semibold tabular-nums">
           {value ? value : <Skeleton className="h-8 w-full" />}
         </CardTitle>
         <CardAction>

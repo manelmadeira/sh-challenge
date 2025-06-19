@@ -17,10 +17,17 @@ export interface CallMessage {
   text: string;
   timestamp: string;
   sentiment: "positive" | "negative" | "neutral";
-  rating?: 1 | 2 | 3 | 4 | 5;
+  rating?: "1" | "2" | "3" | "4" | "5";
   tag?: "inaccurate sentiment" | "critical issue" | "follow-up needed";
+  feedback?: string;
 }
 
 export interface CallConversation {
   messages: CallMessage[];
+}
+
+export interface CallMessageFeedback {
+  rating?: "1" | "2" | "3" | "4" | "5";
+  tag?: "inaccurate sentiment" | "critical issue" | "follow-up needed";
+  feedback?: string;
 }

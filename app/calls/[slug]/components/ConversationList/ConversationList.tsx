@@ -7,6 +7,7 @@ import { CallMessage } from "@/app/api/calls/types";
 import { SentimentBadge } from "@/components/SentimentBadge";
 import { Badge } from "@/components/ui/badge";
 
+import { ConversationlistSkeleton } from "./ConversationListSkeleton";
 import { getConversationMessages } from "./get-conversation-messages";
 
 const MESSAGE_BG = {
@@ -37,6 +38,7 @@ function ConversationMessage({
 
   return (
     <div
+      data-testid="conversation-message"
       className={`p-3 border rounded-sm flex flex-col gap-2  
        ${
          isSelected
@@ -99,18 +101,22 @@ export function ConversationList({
   selectedMessage,
   onSelected,
 }: ConversationListProps) {
-  const { data } = useQuery(getConversationMessages(id));
+  const { data, isPending } = useQuery(getConversationMessages(id));
 
   return (
-    <div className="flex flex-col gap-3 max-h-[500px] overflow-y-scroll">
-      {data?.messages.map((message) => (
-        <ConversationMessage
-          key={message.id}
-          message={message}
-          selectedMessage={selectedMessage}
-          onSelected={onSelected}
-        />
-      ))}
+    <div className="flex flex-col gap-3">
+      {isPending ? (
+        <ConversationlistSkeleton />
+      ) : (
+        data?.messages.map((message) => (
+          <ConversationMessage
+            key={message.id}
+            message={message}
+            selectedMessage={selectedMessage}
+            onSelected={onSelected}
+          />
+        ))
+      )}
     </div>
   );
 }

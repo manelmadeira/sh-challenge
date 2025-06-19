@@ -145,6 +145,7 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
 
   return (
     <p
+      data-testid="form-message"
       data-slot="form-message"
       id={formMessageId}
       className={cn("text-destructive text-sm", className)}
@@ -152,7 +153,7 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
     >
       {body}
     </p>
-  )
+  );
 }
 
 export {

@@ -11,7 +11,7 @@ export function SentimentMetrics() {
 
   return (
     <div className="flex gap-3 flex-col md:flex-row">
-      <div className="basis-1/3">
+      <div className="basis-1/3" data-testid="avg-call-duration">
         <CardStat
           title="Avg. Call Duration"
           value={
@@ -23,7 +23,7 @@ export function SentimentMetrics() {
           diffValue={data?.averageCallDuration.diffValue}
         />
       </div>
-      <div className="basis-1/3">
+      <div className="basis-1/3" data-testid="agent-latency">
         <CardStat
           title="Agent Latency"
           value={
@@ -35,16 +35,16 @@ export function SentimentMetrics() {
           diffValue={data?.agentLatency.diffValue}
         />
       </div>
-      <div className="basis-1/3">
+      <div className="basis-1/3" data-testid="sentiment-score">
         <CardStat
           title="Sentiment Score"
           value={
-            data?.agentLatency.value
-              ? `${data?.agentLatency.value}/10`
+            data?.sentimentScore.value
+              ? `${data?.sentimentScore.value}/10`
               : undefined
           }
-          diffDirection={data?.agentLatency.diffDirection}
-          diffValue={data?.agentLatency.diffValue}
+          diffDirection={data?.sentimentScore.diffDirection}
+          diffValue={data?.sentimentScore.diffValue}
         />
       </div>
     </div>

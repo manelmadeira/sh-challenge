@@ -16,6 +16,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { formatDuration } from "@/lib/format-duration";
 
 import { callsListOptions } from "./calls-list-options";
 
@@ -63,7 +64,7 @@ export function CallsTable() {
               <TableHead>Timestamp</TableHead>
               <TableHead>Agent ID</TableHead>
               <TableHead>Sentiment</TableHead>
-              <TableHead className="text-right">Duration (seconds)</TableHead>
+              <TableHead className="text-right">Duration (m:s)</TableHead>
               <TableHead>Feedback Status</TableHead>
             </TableRow>
           </TableHeader>
@@ -90,7 +91,7 @@ export function CallsTable() {
                       <SentimentBadge sentiment={call.sentiment} />
                     </TableCell>
                     <TableCell className="text-right">
-                      {new Intl.NumberFormat().format(call.duration)}
+                      {formatDuration(call.duration)}
                     </TableCell>
                     <TableCell>
                       <FeedbackStatusBadge status={call.feedbackStatus} />

@@ -15,7 +15,7 @@ export function FeedbackStatusBadge({ status }: FeedbackStatusBadgeProps) {
   return (
     <Badge
       variant="default"
-      className={`${FEEDBACK_STATUS_BADGE_BG[status]} capitalize w-24`}
+      className={`${FEEDBACK_STATUS_BADGE_BG[status]} text-foreground capitalize w-24`}
     >
       {status}
     </Badge>
