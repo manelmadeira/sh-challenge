@@ -61,8 +61,8 @@ export function CallContent({ id }: { id: string }) {
           </CardDescription>
         </CardHeader>
         <CardContent className="grow-1 flex flex-col gap-4 relative">
-          <div className="flex justify-between">
-            <div className="flex gap-5 items-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-between">
+            <div className="flex gap-5 items-center justify-between sm:justify-start">
               <div className="flex gap-1 grow-0 items-center">
                 <span>Sentiment:</span>
 
