@@ -1,5 +1,7 @@
 # AI Call Evaluator
 
+Access the [demo](https://swordhealth-challenge-nine.vercel.app/) app.
+
 Project tech stack: 
 - NextJS
 - Shadcn/ui for component library

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 
 import { useWavesurfer } from "@wavesurfer/react";
+import { useTheme } from "next-themes";
 
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -13,12 +14,13 @@ interface CallWaveProps {
 }
 
 export function CallWave({ src, onReady, isPlaying }: CallWaveProps) {
+  const { theme } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
   const { wavesurfer, isReady } = useWavesurfer({
     container: containerRef,
     height: 150,
-    waveColor: "var(--primary)",
-    progressColor: "blue",
+    waveColor: theme === "light" ? "oklch(0.145 0 0)" : "oklch(0.985 0 0)",
+    progressColor: "oklch(62.3% .214 259.815)",
     cursorColor: "var(--muted-foreground)",
     barWidth: 3,
     barGap: 2,
