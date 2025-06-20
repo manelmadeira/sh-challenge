@@ -18,17 +18,22 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import { formatDuration } from "@/lib/format-duration";
 
+import { CallWave } from "./CallWave";
 import { PlayCall } from "./PlayCall";
 import { CallBreadcrumbs } from "./components/CallBreadcrumbs";
 import { ConversationList } from "./components/ConversationList";
 import { MessageFeedback } from "./components/MessageFeedback";
 import { getCallOptions } from "./get-call-options";
+import { useGetAudioCall } from "./use-get-call-audio";
 
 export function CallContent({ id }: { id: string }) {
   const { data } = useQuery(getCallOptions(id));
   const [selectedMessage, setSelectedMessage] = useState<
     CallMessage | undefined
   >();
+  const audioSrc = useGetAudioCall();
+  const [isAudioReady, setAudioReady] = useState(false);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
   return (
     <main className="p-4 grow flex flex-col gap-6">
@@ -79,8 +84,20 @@ export function CallContent({ id }: { id: string }) {
               </div>
             </div>
 
-            <PlayCall />
+            <PlayCall
+              isReady={isAudioReady}
+              isPlaying={isAudioPlaying}
+              onClick={() => {
+                setIsAudioPlaying((prev) => !prev);
+              }}
+            />
           </div>
+
+          <CallWave
+            src={audioSrc}
+            isPlaying={isAudioPlaying}
+            onReady={() => setAudioReady(true)}
+          />
 
           <div className="grow-1 flex flex-col md:flex-row  gap-5">
             <div className="flex flex-col flex-1/2 order-2 md:order-1 gap-2 ">

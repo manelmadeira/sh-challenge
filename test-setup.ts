@@ -39,3 +39,6 @@ window.PointerEvent = MockPointerEvent as any;
 window.HTMLElement.prototype.scrollIntoView = vi.fn();
 window.HTMLElement.prototype.releasePointerCapture = vi.fn();
 window.HTMLElement.prototype.hasPointerCapture = vi.fn();
+
+window.HTMLMediaElement.prototype.load = vi.fn();
+window.HTMLMediaElement.prototype.pause = vi.fn();
