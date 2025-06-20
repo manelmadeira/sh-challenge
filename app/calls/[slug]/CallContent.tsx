@@ -2,14 +2,12 @@
 
 import { useState } from "react";
 
-import { IconPlayerPlayFilled } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 
 import { CallMessage } from "@/app/api/calls/types";
 import { FeedbackStatusBadge } from "@/components/FeedbackStatusBadge";
 import { SentimentBadge } from "@/components/SentimentBadge";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -20,6 +18,7 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import { formatDuration } from "@/lib/format-duration";
 
+import { PlayCall } from "./PlayCall";
 import { CallBreadcrumbs } from "./components/CallBreadcrumbs";
 import { ConversationList } from "./components/ConversationList";
 import { MessageFeedback } from "./components/MessageFeedback";
@@ -80,9 +79,7 @@ export function CallContent({ id }: { id: string }) {
               </div>
             </div>
 
-            <Button variant="outline" size="lg" className="cursor-pointer">
-              <IconPlayerPlayFilled /> Play Call
-            </Button>
+            <PlayCall />
           </div>
 
           <div className="grow-1 flex flex-col md:flex-row  gap-5">

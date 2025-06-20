@@ -15,7 +15,7 @@ export function SentimentBadge({ sentiment }: SentimentBadgeProps) {
   return (
     <Badge
       variant="default"
-      className={`${SENTIMENT_BADGE_BG[sentiment]} text-foreground capitalize w-16`}
+      className={`${SENTIMENT_BADGE_BG[sentiment]} dark:text-foreground capitalize w-16`}
     >
       {sentiment}
     </Badge>
