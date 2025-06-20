@@ -64,12 +64,12 @@ function ConversationMessage({
 
       <p>{message.text}</p>
 
-      <div className="flex gap-3 justify-between pt-2">
+      <div className="flex flex-col sm:flex-row gap-3 justify-between pt-2">
         <div className="text-muted-foreground text-sm flex gap-1 items-center">
           Sentiment: <SentimentBadge sentiment={message.sentiment} />
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           {message.rating && (
             <div className="text-muted-foreground text-sm flex gap-1 items-center">
               Rating: {message.rating}/5 <IconStarFilled className="size-4" />
